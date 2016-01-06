@@ -1490,7 +1490,7 @@ namespace Tomboy
 			using (FileStream fs = new FileStream(tmp_file, FileMode.Create, FileAccess.Write)) {
 				using (var xml = XmlWriter.Create (fs, XmlEncoder.DocumentSettings))
 					Write (xml, note);
-				fs.Flush(true);
+				fs.Flush(); // parameter true: monodevelop complains
 			}
 
 			if (File.Exists (write_file)) {
